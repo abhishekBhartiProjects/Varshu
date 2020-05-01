@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_1"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="Charity" />
+        <item
+            android:id="@+id/nav_2"
+            android:icon="@drawable/ic_launcher_foreground"
+            android:title="Home" />
+
+    </group>
+
+    <item android:title="Sub items">
+        <menu>
+            <item
+                android:icon="@drawable/ic_launcher_foreground"
+                android:title="Sub item 1" />
+            <item
+                android:icon="@drawable/ic_launcher_foreground"
+                android:title="Sub item 2" />
+        </menu>
+    </item>
+
+
+</menu>
