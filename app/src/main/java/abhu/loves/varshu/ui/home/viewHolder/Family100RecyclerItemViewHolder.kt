@@ -3,7 +3,7 @@ package abhu.loves.varshu.ui.home.viewHolder
 import abhu.loves.varshu.R
 import abhu.loves.varshu.databinding.ItemProductCardBinding
 import abhu.loves.varshu.ui.home.HomeViewModel
-import abhu.loves.varshu.ui.home.model.Entry
+import abhu.loves.varshu.ui.home.data.model.Entry
 import abhu.loves.varshu.utils.FamilyUtils
 import android.content.Context
 import android.view.LayoutInflater

@@ -1,7 +1,7 @@
 package abhu.loves.varshu.ui.explore
 
 import abhu.loves.varshu.common.RequestResult
-import abhu.loves.varshu.ui.home.model.Entry
+import abhu.loves.varshu.ui.home.data.model.Entry
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

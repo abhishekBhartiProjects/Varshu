@@ -2,7 +2,7 @@ package abhu.loves.varshu.utils
 
 import abhu.loves.varshu.R
 import abhu.loves.varshu.ui.home.HomeViewModel
-import abhu.loves.varshu.ui.home.model.Entry
+import abhu.loves.varshu.ui.home.data.model.Entry
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView

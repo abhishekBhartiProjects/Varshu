@@ -3,7 +3,7 @@ package abhu.loves.varshu.ui.explore.viewHolder
 import abhu.loves.varshu.R
 import abhu.loves.varshu.databinding.ItemTitleBinding
 import abhu.loves.varshu.ui.explore.ExploreViewModel
-import abhu.loves.varshu.ui.home.model.Entry
+import abhu.loves.varshu.ui.home.data.model.Entry
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup

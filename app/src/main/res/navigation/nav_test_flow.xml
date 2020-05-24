@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_test_flow"
+    app:startDestination="@id/productFragment">
+
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="abhu.loves.varshu.ui.navFlow.ProductFragment"
+        android:label="ProductFragment" >
+        <action
+            android:id="@+id/action_productFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_productFragment_to_productCheckoutFragment"
+            app:destination="@id/productCheckoutFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="abhu.loves.varshu.ui.navFlow.ProductDetailsFragment"
+        android:label="product_details_fragment"
+        tools:layout="@layout/product_details_fragment" >
+        <action
+            android:id="@+id/action_productDetailsFragment_to_productCheckoutFragment2"
+            app:destination="@id/productCheckoutFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/productDetailsFragment"
+            app:popUpToInclusive="true"/>
+
+        <argument android:name="description"
+            android:defaultValue="None"/>
+
+        <deepLink app:uri="product/{description}"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/productCheckoutFragment"
+        android:name="abhu.loves.varshu.ui.navFlow.ProductCheckoutFragment"
+        android:label="product_checkout_fragment"
+        tools:layout="@layout/product_checkout_fragment" />
+
+    <argument android:name="description"
+        android:defaultValue="None"/>
+
+    <argument android:name="cost"
+        app:argType="abhu.loves.varshu.ui.navFlow.Money"/>
+</navigation>

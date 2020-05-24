@@ -2,7 +2,7 @@ package abhu.loves.varshu.ui.explore
 
 import abhu.loves.varshu.base.BaseRepo
 import abhu.loves.varshu.ui.home.HomeService
-import abhu.loves.varshu.ui.home.model.HomeData
+import abhu.loves.varshu.ui.home.data.model.HomeData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext

@@ -3,8 +3,8 @@ package abhu.loves.varshu.ui.explore
 import abhu.loves.varshu.R
 import abhu.loves.varshu.common.Constants
 import abhu.loves.varshu.common.RequestResult
-import abhu.loves.varshu.ui.home.model.Entry
-import abhu.loves.varshu.ui.home.model.HomeData
+import abhu.loves.varshu.ui.home.data.model.Entry
+import abhu.loves.varshu.ui.home.data.model.HomeData
 import abhu.loves.varshu.utils.ChromeUtils
 import android.os.Bundle
 import android.view.LayoutInflater

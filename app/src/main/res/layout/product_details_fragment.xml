@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.navFlow.ProductDetailsFragment">
+
+    <ImageView
+        android:id="@+id/product_iv"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:src="@drawable/heart_bg"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/product_description_tv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        android:textSize="16sp"
+        android:text="This is dummy text"
+        app:layout_constraintTop_toBottomOf="@id/product_iv"
+        app:layout_constraintStart_toStartOf="@id/product_iv"
+        app:layout_constraintEnd_toEndOf="@id/product_iv"
+        app:layout_constraintBottom_toTopOf="@id/buy_btn"
+        />
+
+    <Button
+        android:id="@+id/buy_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buy"
+        android:background="#419c99"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

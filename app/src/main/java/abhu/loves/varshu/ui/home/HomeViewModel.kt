@@ -1,8 +1,9 @@
 package abhu.loves.varshu.ui.home
 
-import abhu.loves.varshu.ui.home.model.Entry
-import abhu.loves.varshu.ui.home.model.customModel.SeeMore
+import abhu.loves.varshu.ui.home.data.model.Entry
+import abhu.loves.varshu.ui.home.data.model.customModel.SeeMore
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -10,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 
 class HomeViewModel(application: Application): AndroidViewModel(application) {
     val homeRepo = HomeRepo()
-    var homeDataMLD: MutableLiveData<Any> = MutableLiveData()
+    var homeDataMLD: MutableLiveData<ArrayList<Any>> = MutableLiveData()
     var productClickedMLD: MutableLiveData<Entry> = MutableLiveData()
     var seeMoreClickedMLD: MutableLiveData<SeeMore> = MutableLiveData()
 
@@ -25,12 +26,13 @@ class HomeViewModel(application: Application): AndroidViewModel(application) {
             })
     }
 
-    private fun onGetDataSuccess(any: Any){
-        homeDataMLD.value = any
+    private fun onGetDataSuccess(items: ArrayList<Any>){
+        homeDataMLD.value = items
     }
 
     private fun onGetDataError(throwable: Throwable){
-        homeDataMLD.value = throwable
+        Log.e("error" , "error msg")
+//        homeDataMLD.value = throwable
     }
 
     fun onProductClick(product: Entry){

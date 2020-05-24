@@ -4,7 +4,7 @@ import abhu.loves.varshu.R
 import abhu.loves.varshu.common.Constants
 import abhu.loves.varshu.ui.explore.viewHolder.ExploreProductViewHolder
 import abhu.loves.varshu.ui.explore.viewHolder.ExploreTitleViewHolder
-import abhu.loves.varshu.ui.home.model.Entry
+import abhu.loves.varshu.ui.home.data.model.Entry
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

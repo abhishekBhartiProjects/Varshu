@@ -4,23 +4,23 @@ import abhu.loves.varshu.AppApplication
 import abhu.loves.varshu.R
 import abhu.loves.varshu.databinding.HomeFragmentBinding
 import abhu.loves.varshu.ui.explore.ExploreActivity
-import abhu.loves.varshu.ui.home.model.Entry
-import abhu.loves.varshu.ui.home.model.customModel.SeeMore
+import abhu.loves.varshu.ui.home.adapter.HomeAdapter
+import abhu.loves.varshu.ui.home.data.model.Entry
+import abhu.loves.varshu.ui.home.data.model.customModel.SeeMore
+import abhu.loves.varshu.ui.navFlow.ProductActivity
 import abhu.loves.varshu.utils.ChromeUtils
-import android.app.Application
-import android.content.pm.PackageManager
-import android.net.Uri
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.work.*
 import kotlinx.android.synthetic.main.home_fragment.*
 
 class HomeFragment: Fragment() {
@@ -53,7 +53,7 @@ class HomeFragment: Fragment() {
     }
 
     private fun initViewModelObserver(){
-        viewModel.homeDataMLD.observe(this, Observer {
+        viewModel.homeDataMLD.observe(viewLifecycleOwner, Observer {
             it?.let {
                 when(it){
                     is ArrayList<*> -> { onHomeDataResponse(it as ArrayList<Any>)}
@@ -63,13 +63,13 @@ class HomeFragment: Fragment() {
             }
         })
 
-        viewModel.productClickedMLD.observe(this, Observer {
+        viewModel.productClickedMLD.observe(viewLifecycleOwner, Observer {
             it?.let {
                 onProductClicked(it)
             }
         })
 
-        viewModel.seeMoreClickedMLD.observe(this, Observer {
+        viewModel.seeMoreClickedMLD.observe(viewLifecycleOwner, Observer {
             it?.let {
                 onSeeMoreClicked(it)
             }
@@ -85,7 +85,36 @@ class HomeFragment: Fragment() {
     }
 
     private fun initViews(){
-        load_btn.setOnClickListener { getData() }
+        load_btn.setOnClickListener { scheduleWork() }
+        nav_btn.setOnClickListener {
+            startActivity(Intent(requireContext(), ProductActivity::class.java))
+        }
+    }
+
+    private fun scheduleWork() {
+        val constraint = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
+        val inputData = Data.Builder()
+            .putString("inputData", "This is input data")
+            .build()
+
+        val workRequest = OneTimeWorkRequest.Builder(HomeWork::class.java)
+            .setConstraints(constraint)
+            .setInputData(inputData)
+            .build()
+        WorkManager.getInstance(requireContext()).enqueue(workRequest)
+
+        initWorkManagerObserver(workRequest)
+    }
+
+    private fun initWorkManagerObserver(workRequest: OneTimeWorkRequest) {
+        WorkManager.getInstance(requireContext()).getWorkInfoByIdLiveData(workRequest.id).observe(viewLifecycleOwner, Observer {
+           if(it.state == WorkInfo.State.SUCCEEDED){
+               val outputData = it.outputData
+               Log.e("Worker OutputData: ", outputData.getString("outputData") ?: "")
+           }
+        })
     }
 
     private fun setAdapter(productList: ArrayList<*>){
@@ -101,14 +130,14 @@ class HomeFragment: Fragment() {
     private fun onProductClicked(product: Entry){
         context?.let {
             val chromeUtils = ChromeUtils()
-            chromeUtils.openUrlInChrome(context!!, product.deeplink.value)
+            chromeUtils.openUrlInChrome(requireContext(), product.deeplink.value)
         }
     }
 
     private fun onSeeMoreClicked(seeMore: SeeMore){
         context?.let {
             val exploreStartParam = ExploreActivity.ExploreActivityStartParams(seeMore.product.secondaryCategory.value ?: "")
-            ExploreActivity.start(context!!, exploreStartParam)
+            ExploreActivity.start(requireContext(), exploreStartParam)
         }
     }
 

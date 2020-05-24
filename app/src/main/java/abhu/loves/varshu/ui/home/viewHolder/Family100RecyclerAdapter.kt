@@ -2,8 +2,8 @@ package abhu.loves.varshu.ui.home.viewHolder
 
 import abhu.loves.varshu.R
 import abhu.loves.varshu.ui.home.HomeViewModel
-import abhu.loves.varshu.ui.home.model.Entry
-import abhu.loves.varshu.ui.home.model.customModel.SeeMore
+import abhu.loves.varshu.ui.home.data.model.Entry
+import abhu.loves.varshu.ui.home.data.model.customModel.SeeMore
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

@@ -3,9 +3,9 @@ package abhu.loves.varshu.ui.home.viewHolder
 import abhu.loves.varshu.R
 import abhu.loves.varshu.databinding.ItemFamily100Binding
 import abhu.loves.varshu.ui.home.HomeViewModel
-import abhu.loves.varshu.ui.home.model.Entry
-import abhu.loves.varshu.ui.home.model.customModel.Family100
-import abhu.loves.varshu.ui.home.model.customModel.SeeMore
+import abhu.loves.varshu.ui.home.data.model.Entry
+import abhu.loves.varshu.ui.home.data.model.customModel.Family100
+import abhu.loves.varshu.ui.home.data.model.customModel.SeeMore
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup

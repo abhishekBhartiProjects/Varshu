@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import abhu.loves.varshu.ui.home.HomeViewModel
-import abhu.loves.varshu.ui.home.model.customModel.SeeMore
+import abhu.loves.varshu.ui.home.data.model.customModel.SeeMore
 import abhu.loves.varshu.utils.ViewUtils
 
 class MoreItemViewHolder (

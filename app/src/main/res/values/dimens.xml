@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="viewpager_next_item_visible">33dp</dimen>
+    <dimen name="viewpager_next_item_visible2">71dp</dimen>
+    <dimen name="viewpager_next_item_visible3">16dp</dimen>
+    <dimen name="viewpager_current_item_horizontal_margin">49dp</dimen>
+    <dimen name="viewpager_current_item_horizontal_margin_87">67dp</dimen>
+
+    <dimen name="pageMargin">20dp</dimen>
+    <dimen name="offset">50dp</dimen>
+</resources>
